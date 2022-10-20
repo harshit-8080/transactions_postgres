@@ -1,0 +1,39 @@
+exports.transactions_demo = async(req,res)=>{
+	
+	const t = await sequelize.transaction();
+
+	try{
+		const user = await db.user.create(userObject,{transaction:t});
+
+		const data = await db.user.findAll({
+			where:{
+				id:100;
+			}
+		},{
+			transaction:t
+		});
+
+		await t.commit();
+		
+	}
+	catch(error){
+		await t.rollback();
+	}	
+
+}
+
+
+
+Points to remember :-
+	1. sequelize dont do use transaction bydefault.
+
+	2.	BUt we should use transaction for productions
+
+	3.	Two Types of transactions in sequelize
+			1.  unmanaged transaction  --> Above example is unmanaged  transaction as here we are doing manually
+
+			2. 	managed transaction --> Managed transactions handle committing or rolling back the transaction automatically. 
+										You start a managed transaction by passing a callback to sequelize.transaction.
+
+	4.		
+
