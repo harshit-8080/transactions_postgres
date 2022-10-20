@@ -1,0 +1,16 @@
+transaction are a unit of work or set of operations.
+
+it has 4 properties
+    1.  Atomicity - 
+                    1.  completely done or nothing at all.
+
+                    2.  if any error in between operations it should rollback all changes
+
+    2.  Consistency - 
+                    1.  database state should consistent before and after each transaction.
+
+    3. isolation -
+                    1.  two transaction runs in isolation.
+
+    4. durability -
+                    1.  all changes should be persisted after all sucessfully commit.                 
