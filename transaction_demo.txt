@@ -24,14 +24,24 @@ exports.transactions_demo = async(req,res)=>{
 
 
 isolation levels in transactions
+	
+	Isolation leve only applies to other concurrent transactions.
+	Transaction can always see the changes it makes - Regardless of isolation levels.
+
+
 	const { Transaction } = require('sequelize');
 
 	// The following are valid isolation levels:
 	Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED // "READ UNCOMMITTED"  	 -> 	lowest level of isolation
 	Transaction.ISOLATION_LEVELS.READ_COMMITTED // "READ COMMITTED"      	 -> 	better level of isolation
 	Transaction.ISOLATION_LEVELS.REPEATABLE_READ  // "REPEATABLE READ"   	 -> 	reads data from the time Stap  Transactions begins
-	Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"        		 -> 
+	Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"        		 ->   highest level of isolation where transactions are completely isolated from one another.
+
  
+
+ 1.	postgres is special as it saves us form phantam reads even with ISOLATION_LEVELS.REPEATABLE_READ (dont need SERIALIZABLE).
+
+
 
 Points to remember :-
 	1. sequelize dont do use transaction bydefault.
