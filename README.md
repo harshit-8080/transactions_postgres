@@ -1,1 +1,1 @@
-# transactions_sequelzie
+# transactions_sequelize
