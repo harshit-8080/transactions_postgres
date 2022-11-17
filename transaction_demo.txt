@@ -23,7 +23,7 @@ exports.transactions_demo = async(req,res)=>{
 }
 
 
-isolation levels in transactions
+Isolation levels in transactions
 	
 	Isolation leve only applies to other concurrent transactions.
 	Transaction can always see the changes it makes - Regardless of isolation levels.
@@ -34,14 +34,16 @@ isolation levels in transactions
 
 
 	// The following are valid isolation levels:
+	
+	
 	Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED // "READ UNCOMMITTED"  	 -> 	
-	1.	lowest level of isolation
+	1.	This isolation level allows dirty reads.
+	2.	One transaction may see uncommitted changes made by some other transaction.
 	
 	
 	Transaction.ISOLATION_LEVELS.READ_COMMITTED // "READ COMMITTED"      	 -> 	
 	1.	better level of isolation (by Default in postgres) 
 	2.	When one ongoing transaction can read the changes of other committed transaction.
-	
 	
 	
 	Transaction.ISOLATION_LEVELS.REPEATABLE_READ  // "REPEATABLE READ"   	 -> 	
@@ -51,13 +53,12 @@ isolation levels in transactions
 	4.	Important for consistency
 	
 	
-	
 	Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"        		 ->   
 	1.	highest level of isolation where transactions are completely isolated from one another.
 
  
 
- 1.	postgres is special as it saves us form phantam reads even with ISOLATION_LEVELS.REPEATABLE_READ (dont need SERIALIZABLE).
+  NOTE :-	postgres is special as it saves us form phantam reads even with ISOLATION_LEVELS.REPEATABLE_READ (dont need SERIALIZABLE).
 
 
 
