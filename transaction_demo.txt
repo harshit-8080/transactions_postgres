@@ -22,7 +22,20 @@ exports.transactions_demo = async(req,res)=>{
 
 }
 
-There are 3 read phenomena :-	1. Dirty Reads, 2. Reapeatable Reads, 3. Phantom Reads
+
+
+There are 3 read phenomena :-	
+	1. Dirty Reads :-
+		One transaction may see uncommitted changes made by some other transaction.
+		
+	2. Reapeatable Reads :- 
+		Reads data from the time Stap  Transactions begins.
+		
+	3. Phantom Reads :-
+		A Phantom read occurs when one user is repeating a read operation on the same records, but has new records in the results
+
+
+
 
 Isolation levels in transactions
 	
@@ -51,7 +64,8 @@ Isolation levels in transactions
 			1.	reads data from the time Stap  Transactions begins.
 			2.	When one ongoing transaction is not allowed to read the changes of other committed transaction.
 			3.	command in PG	->	begin transaction isolation level repeatable read;
-			4.	Important for consistency
+			4.	Important for consistency.
+			5.	Postgres is special as it saves us form phantam reads even with RR (dont need SERIALIZABLE).
 	
 	
 	4.	Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"        		 ->   
@@ -72,7 +86,9 @@ Points to remember :-
 			1.	unmanaged transaction  --> Above example is unmanaged  transaction as here we are doing manually
 
 			2.	managed transaction --> Managed transactions handle committing or rolling back the transaction automatically. 
-										You start a managed transaction by passing a callback to sequelize.transaction.
+							You start a managed transaction by passing a callback to sequelize.transaction.
 
-	4.		
+
+
+
 
