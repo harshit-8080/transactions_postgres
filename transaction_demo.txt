@@ -69,7 +69,12 @@ Isolation levels in transactions
 	
 	
 	4.	Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"        		 ->   
-			1.	highest level of isolation where transactions are completely isolated from one another.
+			1.	Highest level of isolation where transactions are completely isolated from one another.
+			2.	The Serializable isolation level provides the strictest transaction isolation.
+			
+			3.	Statements cannot read data that has been modified but not yet committed by other transactions.(Read Committed).
+			4.	No other transactions can modify data that has been read by the current transaction until the current transaction 					completes.
+			5.	No Other transactions can insert new rows with key values that key read by cuurent transaction until current transaction 				 completes.
 
  
  
