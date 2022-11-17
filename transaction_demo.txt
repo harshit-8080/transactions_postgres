@@ -31,11 +31,27 @@ isolation levels in transactions
 
 	const { Transaction } = require('sequelize');
 
+
+
 	// The following are valid isolation levels:
-	Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED // "READ UNCOMMITTED"  	 -> 	lowest level of isolation
-	Transaction.ISOLATION_LEVELS.READ_COMMITTED // "READ COMMITTED"      	 -> 	better level of isolation
-	Transaction.ISOLATION_LEVELS.REPEATABLE_READ  // "REPEATABLE READ"   	 -> 	reads data from the time Stap  Transactions begins
-	Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"        		 ->   highest level of isolation where transactions are completely isolated from one another.
+	Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED // "READ UNCOMMITTED"  	 -> 	
+	1.	lowest level of isolation
+	
+	
+	Transaction.ISOLATION_LEVELS.READ_COMMITTED // "READ COMMITTED"      	 -> 	
+	1.	better level of isolation (by Default in postgres) 
+	2.	When one ongoing transaction can read the changes of other committed transaction.
+	
+	
+	
+	Transaction.ISOLATION_LEVELS.REPEATABLE_READ  // "REPEATABLE READ"   	 -> 	
+	1.	reads data from the time Stap  Transactions begins.
+	2.	When one ongoing transaction is not allowed to read the changes of other committed transaction.
+	
+	
+	
+	Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"        		 ->   
+	1.	highest level of isolation where transactions are completely isolated from one another.
 
  
 
