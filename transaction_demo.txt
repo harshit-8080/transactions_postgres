@@ -48,6 +48,7 @@ isolation levels in transactions
 	1.	reads data from the time Stap  Transactions begins.
 	2.	When one ongoing transaction is not allowed to read the changes of other committed transaction.
 	3.	command in PG	->	begin transaction isolation level repeatable read;
+	4.	Important for consistency
 	
 	
 	
