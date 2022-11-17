@@ -47,6 +47,7 @@ isolation levels in transactions
 	Transaction.ISOLATION_LEVELS.REPEATABLE_READ  // "REPEATABLE READ"   	 -> 	
 	1.	reads data from the time Stap  Transactions begins.
 	2.	When one ongoing transaction is not allowed to read the changes of other committed transaction.
+	3.	command in PG	->	begin transaction isolation level repeatable read;
 	
 	
 	
