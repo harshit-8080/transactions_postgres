@@ -68,9 +68,9 @@ Points to remember :-
 	2.	BUt we should use transaction for productions
 
 	3.	Two Types of transactions in sequelize
-			1.  unmanaged transaction  --> Above example is unmanaged  transaction as here we are doing manually
+			1.	unmanaged transaction  --> Above example is unmanaged  transaction as here we are doing manually
 
-			2. 	managed transaction --> Managed transactions handle committing or rolling back the transaction automatically. 
+			2.	managed transaction --> Managed transactions handle committing or rolling back the transaction automatically. 
 										You start a managed transaction by passing a callback to sequelize.transaction.
 
 	4.		
