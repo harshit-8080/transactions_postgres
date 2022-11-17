@@ -22,6 +22,7 @@ exports.transactions_demo = async(req,res)=>{
 
 }
 
+There are 3 read phenomena :-	1. Dirty Reads, 2. Reapeatable Reads, 3. Phantom Reads
 
 Isolation levels in transactions
 	
@@ -36,29 +37,29 @@ Isolation levels in transactions
 	// The following are valid isolation levels:
 	
 	
-	Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED // "READ UNCOMMITTED"  	 -> 	
-	1.	This isolation level allows dirty reads.
-	2.	One transaction may see uncommitted changes made by some other transaction.
+	1.	Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED // "READ UNCOMMITTED"  	 -> 	
+			1.	This isolation level allows dirty reads.
+			2.	One transaction may see uncommitted changes made by some other transaction.
 	
 	
-	Transaction.ISOLATION_LEVELS.READ_COMMITTED // "READ COMMITTED"      	 -> 	
-	1.	better level of isolation (by Default in postgres) 
-	2.	When one ongoing transaction can read the changes of other committed transaction.
+	2.	Transaction.ISOLATION_LEVELS.READ_COMMITTED // "READ COMMITTED"      	 -> 	
+			1.	better level of isolation (by Default in postgres) 
+			2.	When one ongoing transaction can read the changes of other committed transaction.
+
+	
+	3.	Transaction.ISOLATION_LEVELS.REPEATABLE_READ  // "REPEATABLE READ"   	 -> 	
+			1.	reads data from the time Stap  Transactions begins.
+			2.	When one ongoing transaction is not allowed to read the changes of other committed transaction.
+			3.	command in PG	->	begin transaction isolation level repeatable read;
+			4.	Important for consistency
 	
 	
-	Transaction.ISOLATION_LEVELS.REPEATABLE_READ  // "REPEATABLE READ"   	 -> 	
-	1.	reads data from the time Stap  Transactions begins.
-	2.	When one ongoing transaction is not allowed to read the changes of other committed transaction.
-	3.	command in PG	->	begin transaction isolation level repeatable read;
-	4.	Important for consistency
-	
-	
-	Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"        		 ->   
-	1.	highest level of isolation where transactions are completely isolated from one another.
+	4.	Transaction.ISOLATION_LEVELS.SERIALIZABLE // "SERIALIZABLE"        		 ->   
+			1.	highest level of isolation where transactions are completely isolated from one another.
 
  
-
-  NOTE :-	postgres is special as it saves us form phantam reads even with ISOLATION_LEVELS.REPEATABLE_READ (dont need SERIALIZABLE).
+ 
+ NOTE :- Postgres is special as it saves us form phantam reads even with ISOLATION_LEVELS.REPEATABLE_READ (dont need SERIALIZABLE).
 
 
 
