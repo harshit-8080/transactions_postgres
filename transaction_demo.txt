@@ -32,7 +32,8 @@ There are 3 read phenomena :-
 		Reads data from the time Stap  Transactions begins.
 		
 	3. Phantom Reads :-
-		A Phantom read occurs when one user is repeating a read operation on the same records, but has new records in the results
+		A Phantom read occurs when one user is repeating a read operation on the same records, but has new records in the results.
+		It reads COMMITTED data from an INSERT or DELETE query from another transaction.
 
 
 
